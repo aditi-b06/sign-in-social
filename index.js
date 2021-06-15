@@ -33,10 +33,22 @@ function onSignIn(googleUser) {
 //     });
 //   }
 
+// function signOut() {
+//   alert("signing out");
+//     var auth2 = gapi.auth2.getAuthInstance();
+//     auth2.signOut().then(function () {
+//       console.log('User signed out.');
+//     });
+//   }
+
 function signOut() {
-  alert("signing out");
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  }
+    if(confirm("Are you sure to signout?")){
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+            $("#loginDetails").hide();
+            $("#loaderIcon").hide('fast');
+            $("#g-signin2").show('fast');
+        });
+        auth2.disconnect();
+    }
+}
