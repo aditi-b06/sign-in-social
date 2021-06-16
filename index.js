@@ -18,6 +18,7 @@ function onSignIn(googleUser) {
     $(".data").css("display","block");
     $("#pic").attr('src',profile.getImageUrl());
     $("#email").text(profile.getEmail());
+    create();
     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
     console.log('Name: ' + profile.getName());
     console.log('Image URL: ' + profile.getImageUrl());
@@ -52,4 +53,9 @@ function signOut() {
         });
         auth2.disconnect();
     }
+}
+
+function create() // Create function on 1st page
+{
+  window.location = 'test.html';
 }
